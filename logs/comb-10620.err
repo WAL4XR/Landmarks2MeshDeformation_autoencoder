@@ -1,0 +1,28 @@
+2026-07-31 18:57:41,233 INFO Comb training config: {'input_size': 256, 'latent_dim': 512, 'domains': {'heatmap': {'path': 'data/processed/Landmarks/Heatmaps', 'channels': 3, 'out_activation': 'sigmoid', 'pixel_loss': 'l2'}, 'deformation': {'path': 'data/processed/DeformationMaps', 'channels': 3, 'out_activation': 'tanh', 'pixel_loss': 'l1'}}, 'iterations': 2000, 'batch_size': 16, 'learning_rate': 5e-05, 'beta1': 0.5, 'beta2': 0.999, 'num_workers': 2, 'log_interval': 100, 'save_interval': 500, 'checkpoint_dir': 'models/checkpoints', 'seed': 0}
+2026-07-31 18:57:41,355 INFO Domain 'heatmap': 2 images, batch size 2
+2026-07-31 18:57:42,209 INFO Deformation normalization scale (p99.9 |value|): 0.008694
+2026-07-31 18:57:42,209 INFO Domain 'deformation': 3 images, batch size 3
+2026-07-31 18:57:56,586 INFO cycle 100/2000 :: deformation: L1=0.0513 CCL=0.0000 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:58:01,220 INFO cycle 200/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0429 CCL=0.0000
+2026-07-31 18:58:05,834 INFO cycle 300/2000 :: deformation: L1=0.0360 CCL=0.0000 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:58:10,746 INFO cycle 400/2000 :: deformation: L1=0.0335 CCL=0.0000 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:58:15,565 INFO cycle 500/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0329 CCL=0.0009
+2026-07-31 18:58:18,994 INFO Saved checkpoint: models/checkpoints/comb_step500.pt
+2026-07-31 18:58:23,552 INFO cycle 600/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0151 CCL=0.0012
+2026-07-31 18:58:28,427 INFO cycle 700/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0106 CCL=0.0008
+2026-07-31 18:58:33,006 INFO cycle 800/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0086 CCL=0.0007
+2026-07-31 18:58:37,944 INFO cycle 900/2000 :: deformation: L1=0.0074 CCL=0.0006 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:58:42,938 INFO cycle 1000/2000 :: deformation: L1=0.0068 CCL=0.0005 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:58:46,295 INFO Saved checkpoint: models/checkpoints/comb_step1000.pt
+2026-07-31 18:58:51,361 INFO cycle 1100/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0066 CCL=0.0004
+2026-07-31 18:58:55,893 INFO cycle 1200/2000 :: deformation: L1=0.0055 CCL=0.0004 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:59:00,433 INFO cycle 1300/2000 :: deformation: L1=0.0059 CCL=0.0003 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:59:04,856 INFO cycle 1400/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0052 CCL=0.0003
+2026-07-31 18:59:09,353 INFO cycle 1500/2000 :: deformation: L1=0.0047 CCL=0.0003 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:59:12,683 INFO Saved checkpoint: models/checkpoints/comb_step1500.pt
+2026-07-31 18:59:16,953 INFO cycle 1600/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0052 CCL=0.0003
+2026-07-31 18:59:21,185 INFO cycle 1700/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0046 CCL=0.0002
+2026-07-31 18:59:25,581 INFO cycle 1800/2000 :: deformation: L1=0.0046 CCL=0.0002 | heatmap: L2=0.0213 CCL=0.0000
+2026-07-31 18:59:29,936 INFO cycle 1900/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0042 CCL=0.0002
+2026-07-31 18:59:34,371 INFO cycle 2000/2000 :: heatmap: L2=0.0213 CCL=0.0000 | deformation: L1=0.0049 CCL=0.0002
+2026-07-31 18:59:37,613 INFO Saved checkpoint: models/checkpoints/comb_step2000.pt

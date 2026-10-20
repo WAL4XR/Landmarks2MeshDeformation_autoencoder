@@ -1,0 +1,44 @@
+name: mediapipe-project
+channels:
+  - defaults
+dependencies:
+  - python=3.13
+  - pip
+  # Core scientific stack (conda)
+  - numpy=2.4.2
+  - pandas=3.0.1
+  - scipy=1.17.0
+  - scikit-learn=1.8.0
+  - matplotlib=3.10.8
+  - seaborn=0.13.2
+  - joblib=1.5.3
+  - tqdm=4.68.2
+  # Config / utils
+  - pyyaml=6.0.3
+  - python-dotenv=1.2.1
+  - python-dateutil
+  # Qt GUI backend (used by matplotlib / visualizer)
+  - pyqt=6.10.2
+  # Packages installed via pip in this environment
+  - pip:
+      # Extra index for the CUDA 13.0 torch/torchvision wheels (not on PyPI)
+      - --extra-index-url https://download.pytorch.org/whl/cu130
+      # Vision / landmark detection
+      - mediapipe==0.10.32
+      - opencv-python==4.13.0.92
+      - opencv-contrib-python==4.13.0.92
+      - pillow==12.1.1
+      # Deep learning (CUDA 13.0 builds — see note below)
+      - torch==2.11.0+cu130
+      - torchvision==0.26.0+cu130
+      # Supporting libraries
+      - absl-py==2.4.0
+      - flatbuffers==25.12.19
+      - sympy==1.14.0
+      - networkx==3.6.1
+
+# NOTE: torch/torchvision above use CUDA 13.0 (+cu130) wheels. These are not on
+# PyPI's default index, so the pip "--extra-index-url" line above points at the
+# PyTorch index. With it in place, "conda env create -f environment.yml" works
+# without any extra flags.
+# For a CPU-only setup, drop the "+cu130" suffix and the --extra-index-url line.

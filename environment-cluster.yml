@@ -1,0 +1,49 @@
+name: mediapipe-project
+channels:
+  - defaults
+dependencies:
+  - python=3.13
+  - pip
+  # Core scientific stack (conda)
+  - numpy=2.4.2
+  - pandas=3.0.1
+  - scipy=1.17.0
+  - scikit-learn=1.8.0
+  - matplotlib=3.10.8
+  - seaborn=0.13.2
+  - joblib=1.5.3
+  - tqdm=4.68.2
+  # Config / utils
+  - pyyaml=6.0.3
+  - python-dotenv=1.2.1
+  - python-dateutil
+  # Qt GUI backend (used by matplotlib / visualizer)
+  - pyqt=6.10.2
+  # Packages installed via pip in this environment
+  - pip:
+      # Extra index for the CUDA 12.8 torch/torchvision wheels (not on PyPI)
+      - --extra-index-url https://download.pytorch.org/whl/cu128
+      # Vision / landmark detection
+      - mediapipe==0.10.32
+      - opencv-python==4.13.0.92
+      - opencv-contrib-python==4.13.0.92
+      - pillow==12.1.1
+      # Deep learning (CUDA 12.8 builds — see note below)
+      - torch==2.11.0+cu128
+      - torchvision==0.26.0+cu128
+      # Supporting libraries
+      - absl-py==2.4.0
+      - flatbuffers==25.12.19
+      - sympy==1.14.0
+      - networkx==3.6.1
+
+# ISIA cluster variant of environment.yml. The ONLY difference is the CUDA
+# build of torch/torchvision: cu128 instead of cu130.
+#
+# Why: the GPU nodes run driver 570.195.03 (CUDA 12.8). The +cu130 wheels in
+# environment.yml require a 580+ driver and fail to load here with
+# "CUDA driver version is insufficient for CUDA runtime version".
+# Package versions are otherwise identical, so results stay comparable.
+#
+# Recreate this env after any cluster driver upgrade to 580+, at which point
+# environment.yml can be used directly again.

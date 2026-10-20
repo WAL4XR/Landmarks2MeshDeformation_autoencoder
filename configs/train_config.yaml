@@ -1,0 +1,95 @@
+# Training Configuration
+model:
+  name: "default_model"
+  architecture: "resnet50"
+
+training:
+  epochs: 100
+  batch_size: 32
+  learning_rate: 0.001
+  optimizer: "adam"
+  scheduler: "cosine"
+
+data:
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+  num_workers: 2
+
+logging:
+  log_interval: 10
+  save_interval: 5
+  experiment_name: "experiment_001"
+
+# Comb-model image-to-image training (src/models/train_model.py).
+# These keys override the defaults in _default_cfg(); omit any to keep them.
+comb:
+  input_size: 256
+  latent_dim: 512
+  domains:
+    facemesh:
+      # Per-pixel expression deltas from src/MediaPipeFacemesh.py: (256, 256, 4)
+      # float32 .npy, channels (dx, dy, dz, mask). The mask channel is dropped
+      # at load and the offsets are normalized by a measured p99.9 of |value|.
+      path: "data/Train/FaceMeshes"
+      channels: 3
+      out_activation: "tanh"      # signed vertex offsets, normalized to ~[-1, 1]
+      pixel_loss: "l1"            # smooth signed offsets
+    deformation:
+      path: "data/Train/DeformationMaps"
+      channels: 3
+      out_activation: "tanh"      # signed vertex offsets, normalized to ~[-1, 1]
+      pixel_loss: "l1"            # smooth signed offsets
+
+  # L = L_pix + ccl_weight * L_CCL + translation_weight * L_trans.
+  #
+  # The dataset is paired -- facemesh/delta_maps/00042.npy and
+  # DeformationMaps/00042.exr are the same frame -- so translating a facemesh
+  # map through the deformation decoder has a known ground truth, and the run
+  # is supervised. L_trans scores that translation against it directly, which
+  # is the only term that ties a latent to the *corresponding* map in the other
+  # domain; L_pix and L_CCL are both satisfied by any self-consistent mapping.
+  # Set translation_weight to 0 to train the paper's unpaired objective.
+  #
+  # L_trans is a masked L1 like L_pix, so the two are already on the same
+  # scale; L_CCL is an MSE on latents and logs three or four orders of
+  # magnitude smaller. Raise translation_weight if the translations stay blurry
+  # while the reconstructions are sharp -- that is the model spending its
+  # capacity on autoencoding rather than on the cross-domain map.
+  ccl_weight: 1.0
+  translation_weight: 1.0
+
+  # Stop before the post-convergence collapse rather than trying to survive it.
+  # All three cluster runs reached their best loss by cycle 4300-8600 and then
+  # saturated; 6000 captures the converged model (~20 min on an RTX 5080).
+  # Raise this again once the instability itself is fixed.
+  iterations: 500000                # number of N-batch cycles (shared updates)
+
+  # Gradient clipping. Run 11294 trained cleanly to 1e-4 for 16000 cycles,
+  # then a single update destroyed the shared encoder: both output activations
+  # saturated (tanh -> +/-1) and the remaining 484000 cycles were wasted. Clipping caps the update so one outsized gradient cannot do that.
+  # 0 disables it.
+  max_grad_norm: 1.0
+
+  # Abort if a domain sits at its collapsed value for `spike_patience`
+  # consecutive logged cycles. Both domains end in tanh and are scored with L1
+  # averaged over face pixels only, so a saturated output (tanh -> +/-1) costs
+  # ~1.0 on either; the thresholds sit slightly below that to catch it
+  # reliably. Recompute these if the data or the normalization change.
+  spike_abort:
+    facemesh: 0.90
+    deformation: 0.90
+  spike_patience: 100
+  # A freshly initialized model can start above these thresholds, so the check
+  # stays disarmed until the loss has descended. Run 11294 was already at
+  # 0.0396 by cycle 100, so 2000 is generous.
+  spike_warmup: 2000
+  batch_size: 16
+  learning_rate: 5.0e-5
+  beta1: 0.5
+  beta2: 0.999
+  num_workers: 2
+  log_interval: 10000
+  save_interval: 100000
+  checkpoint_dir: "models/checkpoints"
+  seed: 0

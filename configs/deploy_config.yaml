@@ -1,0 +1,13 @@
+# Deployment Configuration
+server:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+
+model:
+  path: "models/latest_model.pkl"
+  device: "cpu"
+
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

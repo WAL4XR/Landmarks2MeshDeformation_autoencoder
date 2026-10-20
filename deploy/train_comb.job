@@ -1,0 +1,54 @@
+#!/bin/bash
+# Comb-model training on the ISIA SLURM cluster, RTX 5080 node.
+#
+# Submit from the repo root on isiacluster:
+#   sbatch deploy/train_comb.job
+#
+# Node/partition mapping (ISIA lab docs): RTX 5080 => GPURACK4, partition rtx50,
+# 24 CPU cores max per node. Note the 5080 has 16 GB of VRAM against the 4090's
+# 24 GB, so this run has notably less headroom than run 11294 had.
+
+#SBATCH --job-name=comb-train
+#SBATCH --partition=rtx50
+#SBATCH --nodelist=GPURACK4
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --cpus-per-task=8
+#SBATCH --gres=gpu:5080:1
+# iterations: 50000 in configs/train_config.yaml, roughly 2 h on one GPU.
+# 3 days is the rtx50 partition maximum; the job ends as soon as training
+# finishes, so over-requesting only affects scheduling priority.
+#SBATCH --time=3-00:00:00
+#SBATCH --output=logs/comb-%j.out
+#SBATCH --error=logs/comb-%j.err
+#SBATCH --mail-type=BEGIN,END,FAIL
+#SBATCH --mail-user=habibahshm.abdelaziz@gmail.com
+
+# No -u here: conda's activate/deactivate hooks reference unset variables
+# (e.g. CONDA_BACKUP_CXX from the gxx_linux-64 toolchain), which would abort
+# the job before training starts.
+set -eo pipefail
+
+mkdir -p logs
+
+# CUDA toolkit on the compute nodes.
+cudaver="cuda-12.8"
+export PATH=/usr/local/${cudaver}/bin${PATH:+:${PATH}}
+export LD_LIBRARY_PATH=/usr/local/${cudaver}/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+
+source "$HOME/miniconda3/etc/profile.d/conda.sh"
+conda activate mediapipe-project
+
+# OpenCV needs this before cv2 is imported to read the .exr deformation maps.
+# train_model.py also sets it, but export it here so it survives any wrapper.
+export OPENCV_IO_ENABLE_OPENEXR=1
+
+# Keep BLAS from oversubscribing the allocated cores.
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK:-8}
+
+echo "host=$(hostname)  job=${SLURM_JOB_ID}  started=$(date)"
+nvidia-smi
+
+srun python -u src/models/train_model.py
+
+echo "finished=$(date)"

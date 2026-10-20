@@ -1,0 +1,43 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python src/models/plot_losses.py /tmp/claude-1000/-home-habiba-Documents-GitHub-Dataset-Curation-pipeline/ad7f1ab8-21cd-4274-b525-b57fc6aeb973/scratchpad/verify.log --collapse 0.1574)",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python src/models/plot_losses.py logs/comb-11294.err --collapse 0.1574)",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python -c ' *)",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python src/models/plot_losses.py logs/comb-11294.err --to 30000 --collapse 0.1574 -o logs/comb-11294_loss_first30k.png)",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python src/models/plot_losses.py logs/comb-11330.err --collapse 0.1574)",
+      "Bash(grep -vE \"^\\\\s*$\")",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python src/models/plot_losses.py logs/comb-11358.err --collapse 0.1574)",
+      "Bash(cat ~/.ssh/config 2>/dev/null | head -60; echo \"=== known_hosts ===\"; cut -d' ' -f1 ~/.ssh/known_hosts 2>/dev/null | head -20)",
+      "Read(//home/habiba/.ssh/**)",
+      "Bash(timeout 30 ssh -o BatchMode=yes -o ConnectTimeout=15 isiacluster 'hostname; ls -la ~/ ; echo \"=== find ckpt ===\"; find ~ -name \"comb_step*.pt\" -printf \"%p %s %TY-%Tm-%Td %TH:%TM\\\\n\" 2>/dev/null')",
+      "Bash(cat .claude/settings.json; echo \"=== history grep ===\"; grep -iE \"scp|rsync|sbatch|isiacluster|squeue\" ~/.bash_history 2>/dev/null | tail -40)",
+      "Read(//home/habiba/**)",
+      "Bash(timeout 30 ssh -v -o BatchMode=yes -o ConnectTimeout=15 -i ~/.ssh/id_ed25519 isiacluster 'hostname')",
+      "Bash(ssh-keygen -lf ~/.ssh/id_ed25519.pub)",
+      "Bash(find /home/habiba -name \"comb_step*.pt\" -o -name \"*.pt\" -path \"*checkpoint*\" 2>/dev/null | head -20; echo \"=== done ===\")",
+      "Read(//home/habiba/snap/code/254/.local/share/Trash/files/**)",
+      "Bash(sort -k9)",
+      "Read(//home/habiba/snap/code/254/.local/share/Trash/info/**)",
+      "Bash(nvidia-smi --query-gpu=name,memory.total --format=csv)",
+      "Bash(nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv)",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python -c \"import torch;print\\('torch',torch.__version__,'| cuda',torch.cuda.is_available\\(\\),'|',torch.cuda.get_device_name\\(0\\) if torch.cuda.is_available\\(\\) else 'CPU only'\\)\")",
+      "Bash(lspci -nn)",
+      "Bash(lsmod)",
+      "Bash(dkms status *)",
+      "Bash(nvidia-smi)",
+      "Bash(timeout 170 ~/miniconda3/envs/mediapipe-project/bin/python -c ' *)",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python src/models/plot_domain_stats.py logs/local-6k.err)",
+      "Bash(~/miniconda3/envs/mediapipe-project/bin/python src/models/plot_losses.py logs/local-6k.err --collapse 0.1574)",
+      "Bash(python -c \"import ast,sys; ast.parse\\(open\\('src/landmark_detector.py'\\).read\\(\\)\\); print\\('syntax OK'\\)\")",
+      "Bash(python src/landmark_detector.py)",
+      "Bash(python -c ' *)",
+      "Bash(/home/habiba/miniconda3/envs/mediapipe-project/bin/python -c ' *)",
+      "Bash(/home/habiba/miniconda3/envs/mediapipe-project/bin/python src/MediaPipeFacemesh.py --preview 10)",
+      "Bash(/home/habiba/miniconda3/envs/mediapipe-project/bin/python /tmp/claude-1000/-home-habiba-Documents-GitHub-Dataset-Curation-pipeline/6468e84e-08c8-4b69-9630-757cc0a34fc3/scratchpad/check_norm.py)"
+    ],
+    "additionalDirectories": [
+      "/home/habiba/Documents/GitHub/Dataset_Curation_pipeline/configs"
+    ]
+  }
+}
