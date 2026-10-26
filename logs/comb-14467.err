@@ -1,0 +1,159 @@
+2026-10-23 19:41:29,883 INFO Comb training config: {'input_size': 256, 'latent_dim': 512, 'domains': {'facemesh': {'path': 'data/Train/FaceMeshes', 'channels': 3, 'out_activation': 'tanh', 'pixel_loss': 'l1'}, 'deformation': {'path': 'data/Omda/Train/DeformationMaps', 'channels': 3, 'out_activation': 'tanh', 'pixel_loss': 'l1'}}, 'ccl_weight': 1.0, 'translation_weight': 1.0, 'iterations': 500000, 'max_grad_norm': 1.0, 'spike_abort': {'facemesh': 0.9, 'deformation': 0.9}, 'spike_patience': 100, 'spike_warmup': 2000, 'batch_size': 16, 'learning_rate': 5e-05, 'beta1': 0.5, 'beta2': 0.999, 'num_workers': 2, 'log_interval': 10000, 'save_interval': 100000, 'checkpoint_dir': 'models/Mike2Omda_checkpoints', 'seed': 0}
+2026-10-23 19:41:35,188 INFO Domain 'facemesh' normalization scale (p99.9 |value|): 0.075869
+2026-10-23 19:43:47,524 INFO Domain 'deformation' normalization scale (p99.9 |value|): 0.000876
+2026-10-23 19:43:47,555 INFO Paired dataset: 4001 frames per domain, batch size 16
+2026-10-23 20:27:43,121 INFO Domain 'facemesh': max 0.9337, min -0.9927, mean 0.0134, zeros: 0 / 1161168 (0.00%)
+2026-10-23 20:27:43,250 INFO Domain 'deformation': max 0.9978, min -0.9976, mean -0.0013, zeros: 4 / 2636928 (0.00%)
+2026-10-23 20:27:43,398 INFO cycle 10000/500000 :: facemesh: L1=0.0093 CCL=0.000199 TRANS=0.0035 | deformation: L1=0.0015 CCL=0.000057 TRANS=0.0156 | |g|=1.382
+2026-10-23 21:11:38,139 INFO Domain 'facemesh': max 0.9647, min -0.9046, mean 0.0020, zeros: 0 / 1161168 (0.00%)
+2026-10-23 21:11:38,268 INFO Domain 'deformation': max 0.9996, min -0.9997, mean -0.0069, zeros: 1 / 2636928 (0.00%)
+2026-10-23 21:11:38,380 INFO cycle 20000/500000 :: facemesh: L1=0.0071 CCL=0.000135 TRANS=0.0036 | deformation: L1=0.0012 CCL=0.000055 TRANS=0.0151 | |g|=1.433
+2026-10-23 21:55:33,101 INFO Domain 'facemesh': max 0.9980, min -0.8302, mean 0.0042, zeros: 0 / 1161168 (0.00%)
+2026-10-23 21:55:33,230 INFO Domain 'deformation': max 0.9999, min -0.9999, mean -0.0067, zeros: 8 / 2636928 (0.00%)
+2026-10-23 21:55:33,343 INFO cycle 30000/500000 :: facemesh: L1=0.0047 CCL=0.000150 TRANS=0.0024 | deformation: L1=0.0009 CCL=0.000062 TRANS=0.0156 | |g|=1.208
+2026-10-23 22:39:29,564 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0001, zeros: 4 / 2636928 (0.00%)
+2026-10-23 22:39:29,692 INFO Domain 'facemesh': max 0.9982, min -0.8047, mean 0.0382, zeros: 0 / 1161168 (0.00%)
+2026-10-23 22:39:29,805 INFO cycle 40000/500000 :: deformation: L1=0.0008 CCL=0.000060 TRANS=0.0142 | facemesh: L1=0.0053 CCL=0.000139 TRANS=0.0024 | |g|=1.484
+2026-10-23 23:23:27,596 INFO Domain 'facemesh': max 0.9934, min -0.8073, mean 0.0181, zeros: 0 / 1161168 (0.00%)
+2026-10-23 23:23:27,724 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0028, zeros: 3 / 2636928 (0.00%)
+2026-10-23 23:23:27,837 INFO cycle 50000/500000 :: facemesh: L1=0.0041 CCL=0.000133 TRANS=0.0022 | deformation: L1=0.0008 CCL=0.000062 TRANS=0.0081 | |g|=1.302
+2026-10-24 00:07:24,968 INFO Domain 'facemesh': max 0.9981, min -1.0000, mean -0.0283, zeros: 0 / 1161168 (0.00%)
+2026-10-24 00:07:25,097 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0024, zeros: 4 / 2636928 (0.00%)
+2026-10-24 00:07:25,209 INFO cycle 60000/500000 :: facemesh: L1=0.0042 CCL=0.000177 TRANS=0.0017 | deformation: L1=0.0007 CCL=0.000071 TRANS=0.0070 | |g|=1.291
+2026-10-24 00:51:24,679 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0048, zeros: 2 / 2636928 (0.00%)
+2026-10-24 00:51:24,808 INFO Domain 'facemesh': max 0.9995, min -0.8879, mean 0.0094, zeros: 0 / 1161168 (0.00%)
+2026-10-24 00:51:24,921 INFO cycle 70000/500000 :: deformation: L1=0.0006 CCL=0.000062 TRANS=0.0066 | facemesh: L1=0.0033 CCL=0.000158 TRANS=0.0013 | |g|=1.225
+2026-10-24 01:35:28,948 INFO Domain 'facemesh': max 0.9998, min -0.9995, mean 0.0266, zeros: 0 / 1161168 (0.00%)
+2026-10-24 01:35:29,078 INFO Domain 'deformation': max 0.9994, min -0.9995, mean -0.0016, zeros: 2 / 2636928 (0.00%)
+2026-10-24 01:35:29,190 INFO cycle 80000/500000 :: facemesh: L1=0.0033 CCL=0.000127 TRANS=0.0017 | deformation: L1=0.0005 CCL=0.000060 TRANS=0.0052 | |g|=1.293
+2026-10-24 02:19:35,732 INFO Domain 'facemesh': max 1.0000, min -0.7732, mean 0.0153, zeros: 0 / 1161168 (0.00%)
+2026-10-24 02:19:35,862 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0090, zeros: 1 / 2636928 (0.00%)
+2026-10-24 02:19:35,974 INFO cycle 90000/500000 :: facemesh: L1=0.0029 CCL=0.000127 TRANS=0.0014 | deformation: L1=0.0007 CCL=0.000063 TRANS=0.0057 | |g|=1.367
+2026-10-24 03:03:41,178 INFO Domain 'facemesh': max 0.9999, min -0.8186, mean 0.0213, zeros: 0 / 1161168 (0.00%)
+2026-10-24 03:03:41,308 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0041, zeros: 17 / 2636928 (0.00%)
+2026-10-24 03:03:41,420 INFO cycle 100000/500000 :: facemesh: L1=0.0029 CCL=0.000102 TRANS=0.0011 | deformation: L1=0.0006 CCL=0.000065 TRANS=0.0045 | |g|=1.118
+2026-10-24 03:03:46,653 INFO Saved checkpoint: models/Mike2Omda_checkpoints/comb_step100000.pt
+2026-10-24 03:47:43,871 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0055, zeros: 8 / 2636928 (0.00%)
+2026-10-24 03:47:44,000 INFO Domain 'facemesh': max 0.7380, min -0.9997, mean 0.0005, zeros: 0 / 1161168 (0.00%)
+2026-10-24 03:47:44,112 INFO cycle 110000/500000 :: deformation: L1=0.0006 CCL=0.000057 TRANS=0.0051 | facemesh: L1=0.0028 CCL=0.000106 TRANS=0.0010 | |g|=1.314
+2026-10-24 04:31:41,189 INFO Domain 'facemesh': max 0.9973, min -0.6321, mean 0.0326, zeros: 0 / 1161168 (0.00%)
+2026-10-24 04:31:41,318 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0018, zeros: 3 / 2636928 (0.00%)
+2026-10-24 04:31:41,430 INFO cycle 120000/500000 :: facemesh: L1=0.0025 CCL=0.000098 TRANS=0.0011 | deformation: L1=0.0005 CCL=0.000051 TRANS=0.0043 | |g|=1.248
+2026-10-24 05:15:40,586 INFO Domain 'facemesh': max 0.9511, min -0.9955, mean 0.0293, zeros: 0 / 1161168 (0.00%)
+2026-10-24 05:15:40,714 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0027, zeros: 3 / 2636928 (0.00%)
+2026-10-24 05:15:40,826 INFO cycle 130000/500000 :: facemesh: L1=0.0035 CCL=0.000106 TRANS=0.0010 | deformation: L1=0.0006 CCL=0.000061 TRANS=0.0054 | |g|=1.334
+2026-10-24 05:59:38,504 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0041, zeros: 14 / 2636928 (0.00%)
+2026-10-24 05:59:38,633 INFO Domain 'facemesh': max 0.9787, min -0.9981, mean 0.0419, zeros: 0 / 1161168 (0.00%)
+2026-10-24 05:59:38,745 INFO cycle 140000/500000 :: deformation: L1=0.0005 CCL=0.000053 TRANS=0.0039 | facemesh: L1=0.0025 CCL=0.000106 TRANS=0.0007 | |g|=1.094
+2026-10-24 06:43:36,179 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0042, zeros: 3 / 2636928 (0.00%)
+2026-10-24 06:43:36,308 INFO Domain 'facemesh': max 0.9949, min -0.9574, mean 0.0228, zeros: 0 / 1161168 (0.00%)
+2026-10-24 06:43:36,420 INFO cycle 150000/500000 :: deformation: L1=0.0005 CCL=0.000043 TRANS=0.0036 | facemesh: L1=0.0025 CCL=0.000098 TRANS=0.0008 | |g|=1.246
+2026-10-24 07:27:35,240 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0047, zeros: 0 / 2636928 (0.00%)
+2026-10-24 07:27:35,369 INFO Domain 'facemesh': max 0.9999, min -0.9712, mean 0.0111, zeros: 0 / 1161168 (0.00%)
+2026-10-24 07:27:35,481 INFO cycle 160000/500000 :: deformation: L1=0.0005 CCL=0.000047 TRANS=0.0033 | facemesh: L1=0.0024 CCL=0.000093 TRANS=0.0008 | |g|=1.293
+2026-10-24 08:11:33,801 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0045, zeros: 15 / 2636928 (0.00%)
+2026-10-24 08:11:33,931 INFO Domain 'facemesh': max 0.9991, min -0.8428, mean 0.0032, zeros: 0 / 1161168 (0.00%)
+2026-10-24 08:11:34,043 INFO cycle 170000/500000 :: deformation: L1=0.0004 CCL=0.000046 TRANS=0.0037 | facemesh: L1=0.0027 CCL=0.000094 TRANS=0.0007 | |g|=1.207
+2026-10-24 08:55:31,854 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0078, zeros: 6 / 2636928 (0.00%)
+2026-10-24 08:55:31,983 INFO Domain 'facemesh': max 1.0000, min -0.9993, mean 0.0186, zeros: 0 / 1161168 (0.00%)
+2026-10-24 08:55:32,095 INFO cycle 180000/500000 :: deformation: L1=0.0005 CCL=0.000046 TRANS=0.0027 | facemesh: L1=0.0025 CCL=0.000087 TRANS=0.0007 | |g|=1.283
+2026-10-24 09:39:29,598 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0036, zeros: 1 / 2636928 (0.00%)
+2026-10-24 09:39:29,726 INFO Domain 'facemesh': max 1.0000, min -0.7970, mean 0.0287, zeros: 0 / 1161168 (0.00%)
+2026-10-24 09:39:29,839 INFO cycle 190000/500000 :: deformation: L1=0.0005 CCL=0.000042 TRANS=0.0045 | facemesh: L1=0.0029 CCL=0.000086 TRANS=0.0008 | |g|=1.335
+2026-10-24 10:23:29,184 INFO Domain 'facemesh': max 1.0000, min -0.9114, mean 0.0292, zeros: 0 / 1161168 (0.00%)
+2026-10-24 10:23:29,314 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0010, zeros: 10 / 2636928 (0.00%)
+2026-10-24 10:23:29,426 INFO cycle 200000/500000 :: facemesh: L1=0.0025 CCL=0.000087 TRANS=0.0005 | deformation: L1=0.0003 CCL=0.000037 TRANS=0.0053 | |g|=1.299
+2026-10-24 10:23:34,200 INFO Saved checkpoint: models/Mike2Omda_checkpoints/comb_step200000.pt
+2026-10-24 11:07:32,675 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0032, zeros: 3 / 2636928 (0.00%)
+2026-10-24 11:07:32,804 INFO Domain 'facemesh': max 0.9750, min -0.9997, mean 0.0004, zeros: 0 / 1161168 (0.00%)
+2026-10-24 11:07:32,916 INFO cycle 210000/500000 :: deformation: L1=0.0004 CCL=0.000035 TRANS=0.0034 | facemesh: L1=0.0034 CCL=0.000092 TRANS=0.0007 | |g|=1.367
+2026-10-24 11:51:32,658 INFO Domain 'facemesh': max 0.9522, min -0.9599, mean 0.0322, zeros: 1 / 1161168 (0.00%)
+2026-10-24 11:51:32,787 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0035, zeros: 3 / 2636928 (0.00%)
+2026-10-24 11:51:32,899 INFO cycle 220000/500000 :: facemesh: L1=0.0022 CCL=0.000095 TRANS=0.0007 | deformation: L1=0.0003 CCL=0.000038 TRANS=0.0028 | |g|=1.353
+2026-10-24 12:35:31,761 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0053, zeros: 20 / 2636928 (0.00%)
+2026-10-24 12:35:31,890 INFO Domain 'facemesh': max 0.9998, min -0.8350, mean 0.0372, zeros: 0 / 1161168 (0.00%)
+2026-10-24 12:35:32,002 INFO cycle 230000/500000 :: deformation: L1=0.0004 CCL=0.000042 TRANS=0.0029 | facemesh: L1=0.0019 CCL=0.000077 TRANS=0.0006 | |g|=1.089
+2026-10-24 13:19:33,030 INFO Domain 'deformation': max 0.9999, min -1.0000, mean -0.0017, zeros: 5 / 2636928 (0.00%)
+2026-10-24 13:19:33,159 INFO Domain 'facemesh': max 0.9993, min -0.9984, mean 0.0225, zeros: 0 / 1161168 (0.00%)
+2026-10-24 13:19:33,271 INFO cycle 240000/500000 :: deformation: L1=0.0004 CCL=0.000042 TRANS=0.0032 | facemesh: L1=0.0019 CCL=0.000100 TRANS=0.0005 | |g|=1.224
+2026-10-24 14:03:33,448 INFO Domain 'facemesh': max 0.9952, min -0.7828, mean 0.0193, zeros: 0 / 1161168 (0.00%)
+2026-10-24 14:03:33,577 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0023, zeros: 2 / 2636928 (0.00%)
+2026-10-24 14:03:33,690 INFO cycle 250000/500000 :: facemesh: L1=0.0020 CCL=0.000082 TRANS=0.0005 | deformation: L1=0.0004 CCL=0.000036 TRANS=0.0025 | |g|=1.372
+2026-10-24 14:47:32,075 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0010, zeros: 4 / 2636928 (0.00%)
+2026-10-24 14:47:32,204 INFO Domain 'facemesh': max 1.0000, min -0.8748, mean 0.0342, zeros: 0 / 1161168 (0.00%)
+2026-10-24 14:47:32,316 INFO cycle 260000/500000 :: deformation: L1=0.0003 CCL=0.000037 TRANS=0.0027 | facemesh: L1=0.0022 CCL=0.000085 TRANS=0.0005 | |g|=1.208
+2026-10-24 15:31:31,268 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0080, zeros: 6 / 2636928 (0.00%)
+2026-10-24 15:31:31,398 INFO Domain 'facemesh': max 0.9226, min -0.8454, mean 0.0371, zeros: 0 / 1161168 (0.00%)
+2026-10-24 15:31:31,510 INFO cycle 270000/500000 :: deformation: L1=0.0004 CCL=0.000036 TRANS=0.0024 | facemesh: L1=0.0016 CCL=0.000069 TRANS=0.0005 | |g|=1.234
+2026-10-24 16:15:29,780 INFO Domain 'facemesh': max 0.9998, min -0.8927, mean 0.0236, zeros: 0 / 1161168 (0.00%)
+2026-10-24 16:15:29,909 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0044, zeros: 9 / 2636928 (0.00%)
+2026-10-24 16:15:30,021 INFO cycle 280000/500000 :: facemesh: L1=0.0018 CCL=0.000074 TRANS=0.0006 | deformation: L1=0.0004 CCL=0.000038 TRANS=0.0025 | |g|=1.210
+2026-10-24 16:59:29,599 INFO Domain 'facemesh': max 1.0000, min -0.9951, mean 0.0296, zeros: 0 / 1161168 (0.00%)
+2026-10-24 16:59:29,728 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0030, zeros: 8 / 2636928 (0.00%)
+2026-10-24 16:59:29,840 INFO cycle 290000/500000 :: facemesh: L1=0.0023 CCL=0.000079 TRANS=0.0006 | deformation: L1=0.0003 CCL=0.000036 TRANS=0.0026 | |g|=1.204
+2026-10-24 17:43:29,379 INFO Domain 'facemesh': max 0.9991, min -0.9897, mean 0.0355, zeros: 0 / 1161168 (0.00%)
+2026-10-24 17:43:29,507 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0059, zeros: 2 / 2636928 (0.00%)
+2026-10-24 17:43:29,619 INFO cycle 300000/500000 :: facemesh: L1=0.0022 CCL=0.000086 TRANS=0.0005 | deformation: L1=0.0004 CCL=0.000032 TRANS=0.0023 | |g|=1.280
+2026-10-24 17:43:34,293 INFO Saved checkpoint: models/Mike2Omda_checkpoints/comb_step300000.pt
+2026-10-24 18:27:33,565 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0003, zeros: 28 / 2636928 (0.00%)
+2026-10-24 18:27:33,694 INFO Domain 'facemesh': max 0.7814, min -0.9997, mean 0.0016, zeros: 0 / 1161168 (0.00%)
+2026-10-24 18:27:33,806 INFO cycle 310000/500000 :: deformation: L1=0.0003 CCL=0.000039 TRANS=0.0028 | facemesh: L1=0.0019 CCL=0.000091 TRANS=0.0004 | |g|=1.152
+2026-10-24 19:11:34,554 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0021, zeros: 58 / 2636928 (0.00%)
+2026-10-24 19:11:34,683 INFO Domain 'facemesh': max 0.9840, min -0.7911, mean 0.0184, zeros: 0 / 1161168 (0.00%)
+2026-10-24 19:11:34,795 INFO cycle 320000/500000 :: deformation: L1=0.0003 CCL=0.000035 TRANS=0.0023 | facemesh: L1=0.0016 CCL=0.000073 TRANS=0.0004 | |g|=1.110
+2026-10-24 19:55:33,997 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0045, zeros: 10 / 2636928 (0.00%)
+2026-10-24 19:55:34,126 INFO Domain 'facemesh': max 0.9897, min -0.9999, mean 0.0146, zeros: 0 / 1161168 (0.00%)
+2026-10-24 19:55:34,238 INFO cycle 330000/500000 :: deformation: L1=0.0004 CCL=0.000038 TRANS=0.0026 | facemesh: L1=0.0017 CCL=0.000078 TRANS=0.0004 | |g|=1.316
+2026-10-24 20:39:33,316 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0053, zeros: 4 / 2636928 (0.00%)
+2026-10-24 20:39:33,445 INFO Domain 'facemesh': max 0.9996, min -0.8533, mean 0.0320, zeros: 0 / 1161168 (0.00%)
+2026-10-24 20:39:33,557 INFO cycle 340000/500000 :: deformation: L1=0.0004 CCL=0.000039 TRANS=0.0028 | facemesh: L1=0.0015 CCL=0.000075 TRANS=0.0004 | |g|=1.278
+2026-10-24 21:23:33,649 INFO Domain 'facemesh': max 0.9298, min -0.9999, mean 0.0181, zeros: 0 / 1161168 (0.00%)
+2026-10-24 21:23:33,779 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0035, zeros: 12 / 2636928 (0.00%)
+2026-10-24 21:23:33,891 INFO cycle 350000/500000 :: facemesh: L1=0.0018 CCL=0.000066 TRANS=0.0004 | deformation: L1=0.0003 CCL=0.000035 TRANS=0.0023 | |g|=1.236
+2026-10-24 22:07:33,793 INFO Domain 'facemesh': max 0.9297, min -1.0000, mean 0.0085, zeros: 0 / 1161168 (0.00%)
+2026-10-24 22:07:33,922 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0075, zeros: 7 / 2636928 (0.00%)
+2026-10-24 22:07:34,034 INFO cycle 360000/500000 :: facemesh: L1=0.0015 CCL=0.000069 TRANS=0.0004 | deformation: L1=0.0003 CCL=0.000033 TRANS=0.0024 | |g|=1.292
+2026-10-24 22:51:33,943 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0045, zeros: 5 / 2636928 (0.00%)
+2026-10-24 22:51:34,072 INFO Domain 'facemesh': max 0.9869, min -0.9904, mean 0.0212, zeros: 0 / 1161168 (0.00%)
+2026-10-24 22:51:34,184 INFO cycle 370000/500000 :: deformation: L1=0.0003 CCL=0.000034 TRANS=0.0019 | facemesh: L1=0.0015 CCL=0.000080 TRANS=0.0004 | |g|=1.049
+2026-10-24 23:35:35,103 INFO Domain 'facemesh': max 0.9993, min -0.8497, mean 0.0324, zeros: 0 / 1161168 (0.00%)
+2026-10-24 23:35:35,232 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0044, zeros: 11 / 2636928 (0.00%)
+2026-10-24 23:35:35,345 INFO cycle 380000/500000 :: facemesh: L1=0.0017 CCL=0.000078 TRANS=0.0003 | deformation: L1=0.0003 CCL=0.000033 TRANS=0.0023 | |g|=1.206
+2026-10-25 00:19:36,330 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0035, zeros: 8 / 2636928 (0.00%)
+2026-10-25 00:19:36,458 INFO Domain 'facemesh': max 0.8190, min -0.9482, mean 0.0293, zeros: 0 / 1161168 (0.00%)
+2026-10-25 00:19:36,570 INFO cycle 390000/500000 :: deformation: L1=0.0003 CCL=0.000034 TRANS=0.0022 | facemesh: L1=0.0013 CCL=0.000070 TRANS=0.0004 | |g|=1.143
+2026-10-25 01:03:37,888 INFO Domain 'deformation': max 0.9996, min -1.0000, mean -0.0065, zeros: 12 / 2636928 (0.00%)
+2026-10-25 01:03:38,018 INFO Domain 'facemesh': max 0.8166, min -0.9999, mean -0.0069, zeros: 0 / 1161168 (0.00%)
+2026-10-25 01:03:38,130 INFO cycle 400000/500000 :: deformation: L1=0.0003 CCL=0.000032 TRANS=0.0019 | facemesh: L1=0.0016 CCL=0.000076 TRANS=0.0004 | |g|=0.833
+2026-10-25 01:03:42,326 INFO Saved checkpoint: models/Mike2Omda_checkpoints/comb_step400000.pt
+2026-10-25 01:47:39,188 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0065, zeros: 26 / 2636928 (0.00%)
+2026-10-25 01:47:39,317 INFO Domain 'facemesh': max 0.9763, min -0.8727, mean 0.0272, zeros: 1 / 1161168 (0.00%)
+2026-10-25 01:47:39,429 INFO cycle 410000/500000 :: deformation: L1=0.0003 CCL=0.000033 TRANS=0.0025 | facemesh: L1=0.0016 CCL=0.000063 TRANS=0.0004 | |g|=1.235
+2026-10-25 02:31:36,808 INFO Domain 'facemesh': max 0.9997, min -0.9597, mean 0.0338, zeros: 0 / 1161168 (0.00%)
+2026-10-25 02:31:36,937 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0037, zeros: 35 / 2636928 (0.00%)
+2026-10-25 02:31:37,050 INFO cycle 420000/500000 :: facemesh: L1=0.0020 CCL=0.000070 TRANS=0.0004 | deformation: L1=0.0003 CCL=0.000033 TRANS=0.0026 | |g|=1.270
+2026-10-25 02:15:34,381 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0036, zeros: 8 / 2636928 (0.00%)
+2026-10-25 02:15:34,510 INFO Domain 'facemesh': max 0.9965, min -0.8866, mean 0.0324, zeros: 0 / 1161168 (0.00%)
+2026-10-25 02:15:34,622 INFO cycle 430000/500000 :: deformation: L1=0.0003 CCL=0.000031 TRANS=0.0020 | facemesh: L1=0.0015 CCL=0.000071 TRANS=0.0004 | |g|=1.174
+2026-10-25 02:59:31,819 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0043, zeros: 26 / 2636928 (0.00%)
+2026-10-25 02:59:31,948 INFO Domain 'facemesh': max 0.9956, min -0.6557, mean 0.0463, zeros: 0 / 1161168 (0.00%)
+2026-10-25 02:59:32,060 INFO cycle 440000/500000 :: deformation: L1=0.0002 CCL=0.000031 TRANS=0.0020 | facemesh: L1=0.0016 CCL=0.000070 TRANS=0.0003 | |g|=1.108
+2026-10-25 03:43:30,335 INFO Domain 'facemesh': max 0.9436, min -0.7384, mean 0.0276, zeros: 0 / 1161168 (0.00%)
+2026-10-25 03:43:30,463 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0064, zeros: 5 / 2636928 (0.00%)
+2026-10-25 03:43:30,576 INFO cycle 450000/500000 :: facemesh: L1=0.0012 CCL=0.000071 TRANS=0.0004 | deformation: L1=0.0003 CCL=0.000028 TRANS=0.0019 | |g|=1.113
+2026-10-25 04:27:30,466 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0055, zeros: 8 / 2636928 (0.00%)
+2026-10-25 04:27:30,594 INFO Domain 'facemesh': max 0.9998, min -0.8723, mean 0.0245, zeros: 0 / 1161168 (0.00%)
+2026-10-25 04:27:30,707 INFO cycle 460000/500000 :: deformation: L1=0.0003 CCL=0.000027 TRANS=0.0019 | facemesh: L1=0.0015 CCL=0.000064 TRANS=0.0004 | |g|=1.196
+2026-10-25 05:11:28,459 INFO Domain 'facemesh': max 0.9996, min -0.9989, mean 0.0264, zeros: 0 / 1161168 (0.00%)
+2026-10-25 05:11:28,588 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0065, zeros: 7 / 2636928 (0.00%)
+2026-10-25 05:11:28,700 INFO cycle 470000/500000 :: facemesh: L1=0.0014 CCL=0.000064 TRANS=0.0003 | deformation: L1=0.0003 CCL=0.000033 TRANS=0.0019 | |g|=1.213
+2026-10-25 05:55:28,182 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0050, zeros: 12 / 2636928 (0.00%)
+2026-10-25 05:55:28,311 INFO Domain 'facemesh': max 1.0000, min -0.9782, mean 0.0340, zeros: 0 / 1161168 (0.00%)
+2026-10-25 05:55:28,423 INFO cycle 480000/500000 :: deformation: L1=0.0003 CCL=0.000029 TRANS=0.0023 | facemesh: L1=0.0016 CCL=0.000070 TRANS=0.0004 | |g|=1.237
+2026-10-25 06:39:26,703 INFO Domain 'deformation': max 0.9942, min -0.9993, mean -0.0016, zeros: 4 / 2636928 (0.00%)
+2026-10-25 06:39:26,831 INFO Domain 'facemesh': max 1.0000, min -0.9992, mean 0.0277, zeros: 0 / 1161168 (0.00%)
+2026-10-25 06:39:26,944 INFO cycle 490000/500000 :: deformation: L1=0.0002 CCL=0.000024 TRANS=0.0016 | facemesh: L1=0.0015 CCL=0.000063 TRANS=0.0003 | |g|=1.245
+2026-10-25 07:23:25,665 INFO Domain 'facemesh': max 0.8655, min -0.8914, mean 0.0172, zeros: 0 / 1161168 (0.00%)
+2026-10-25 07:23:25,793 INFO Domain 'deformation': max 1.0000, min -1.0000, mean -0.0033, zeros: 6 / 2636928 (0.00%)
+2026-10-25 07:23:25,905 INFO cycle 500000/500000 :: facemesh: L1=0.0015 CCL=0.000069 TRANS=0.0003 | deformation: L1=0.0002 CCL=0.000033 TRANS=0.0017 | |g|=1.151
+2026-10-25 07:23:30,332 INFO Saved checkpoint: models/Mike2Omda_checkpoints/comb_step500000.pt
