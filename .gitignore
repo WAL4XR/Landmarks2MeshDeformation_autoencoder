@@ -34,7 +34,8 @@ MANIFEST
 
 #Generated Data
 [Dd]ata/
-models/checkpoints/
+models/**/*checkpoints*/
+logs/
 
 # Installer logs
 pip-log.txt

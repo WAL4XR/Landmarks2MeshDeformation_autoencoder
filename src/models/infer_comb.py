@@ -251,6 +251,7 @@ def preview(model, cfg, scales, device, out_dir, step, n_samples=4, stems=None):
     return written
 
 #python src/models/infer_comb.py --translate data/Train/FaceMeshes/00002.npy     models/checkpoints/comb_step500000.pt
+#python src/models/infer_comb.py --translate logs/inference/disfa_SN001/SN001_B8_AU25_TrailNo_2_042.npy     models/Mike2Omda_checkpoints/comb_step500000.pt
 @torch.no_grad()
 def translate_map(model, cfg, scales, device, src_path,
                   out_dir="data/translated/deformation",
